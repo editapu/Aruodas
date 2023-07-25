@@ -4,6 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -11,11 +12,18 @@ import java.time.Duration;
 public class AruodasTest {
 
     @Test
-
     public void makeAdPositiveTest() {
-        AruodasAd ad = new AruodasAd("Vilnius","Kairėnai","Gailių", "2", "867302723", "20", "Labas", "6000", new String[]{"Namu valda", "Misko ukio"});
+        AruodasAd ad = new AruodasAd("Vilnius", "Kairėnai", "Gailių", "2", "867302723", "20", "Labas", " ", "6000", new String[]{"Namu valda", "Misko ukio"});
         ad.fillAd();
+       // ad.deleteAd();
     }
+    @Ignore
+    @Test
+    public void deleteAdTest() {
+        AruodasAd ad = new AruodasAd();
+        ad.deleteAd();
+    }
+
 
     @BeforeClass
     public void beforeClass() {
