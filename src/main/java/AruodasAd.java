@@ -13,8 +13,12 @@ public class AruodasAd {
     private String street;
     private String no;
     private String description;
+    private String photo;
 
-    public AruodasAd(String city, String microdistrict, String street, String no, String phoNo, String area, String description, String price, String[] purposes) {
+    public AruodasAd() {
+    }
+
+    public AruodasAd(String city, String microdistrict, String street, String no, String phoNo, String area, String description, String photo, String price, String[] purposes) {
         this.city = city;
         this.microdistrict = microdistrict;
         this.street = street;
@@ -22,6 +26,7 @@ public class AruodasAd {
         this.phoNo = phoNo;
         this.area = area;
         this.description = description;
+        this.photo = photo;
         this.price = price;
         this.purposes = purposes;
     }
@@ -38,31 +43,51 @@ public class AruodasAd {
         Utils.driver.findElement(By.id("fieldFAreaOverAll")).sendKeys(this.area);
         this.selectPurpose();
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[26]/div/div[1]/textarea")).sendKeys("Labas");
+        selectPhoto();
         Utils.driver.findElement(By.id("priceField")).sendKeys(this.price);
         Utils.driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[34]/span[1]/input")).sendKeys(this.phoNo);
         submit();
+        deleteAd();
     }
+
     public void selectRegion() {
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[3]/span[1]/span")).click();
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[3]/span[1]/ul[2]/li[1]/input")).sendKeys(this.city);
         Utils.wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("/html/body/div[1]/div[2]/form/ul/li[3]/span[1]/ul[2]/li[63]"), this.city));
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[3]/span[1]/ul[2]/li[1]/input")).sendKeys(Keys.ENTER);
     }
+
     public void selectMicrodistrict() {
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[5]/span[1]/span[2]")).click();
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[5]/span[1]/ul[2]/li[1]/input")).sendKeys("Kairėnai");
         Utils.wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("/html/body/div[1]/div[2]/form/ul/li[5]/span[1]/ul[2]/li[67]"), this.microdistrict));
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[5]/span[1]/ul[2]/li[1]/input")).sendKeys(Keys.ENTER);
     }
+
     public void selectStreet() {
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[6]/span[1]/span[2]")).click();
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[6]/span[1]/ul[2]/li[1]/input")).sendKeys("Gailių");
         Utils.wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("/html/body/div[1]/div[2]/form/ul/li[6]/span[1]/ul[2]/li[2961]"), this.street));
         Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[6]/span[1]/ul[2]/li[1]/input")).sendKeys(Keys.ENTER);
     }
+
+    public void selectPhoto() {
+        //Utils.driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/ul/li[28]/div/div[1]/a")).click();
+        Utils.driver.findElement(By.xpath("//*[@id=\"uploadPhotoBtn\"]/input")).sendKeys("C:\\Users\\irtor\\Desktop\\objects-31455.jpeg");
+
+    }
+
     public void submit() {
         Utils.driver.findElement(By.id("submitFormButton")).click();
     }
+
+    public void deleteAd() {
+        Utils.driver.get("https://www.aruodas.lt/mano-aruodas/");
+        Utils.driver.findElement(By.id("deleteActionButton")).click();
+        Utils.driver.findElement(By.xpath("//*[@id=\"fancybox-content\"]/div/div/form/label[2]/input")).click();
+        Utils.driver.findElement(By.xpath("/html/body/div[9]/div/div[10]/div/div/form/p/button")).click();
+    }
+
     public void selectPurpose() {
 
         for (int i = 0; i < this.purposes.length; i++) {
