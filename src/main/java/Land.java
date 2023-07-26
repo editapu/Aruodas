@@ -6,6 +6,7 @@ public class Land extends Advertisement {
     public Land(String city, String microdistrict, String street, String phoNo, String area, String price, String[] purposes, String photo){
         super(city, microdistrict, street,  phoNo, area, price, photo);
         this.purposes = purposes;
+
     }
 
     public void fillAd(){

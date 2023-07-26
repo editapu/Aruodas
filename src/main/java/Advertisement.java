@@ -11,6 +11,7 @@ public class Advertisement {     // sukurta tevine klase. sioje klaseje nugula v
     private String area;
     private String price;
     private String photo;
+    private String No;
 
 
 
@@ -23,6 +24,7 @@ public class Advertisement {     // sukurta tevine klase. sioje klaseje nugula v
         this.area = area;
         this.price = price;
         this.photo = photo;
+        this.No = No;
     }
 
     public void fillGeneral() {    // nusirodom atskirus metodus
