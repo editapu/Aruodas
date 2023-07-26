@@ -9,8 +9,8 @@ public class Utils {
     public static WebDriverWait wait;
 
     public static void acceptCookies() {
-        Utils.driver.get("https://www.aruodas.lt/");
-        Utils.driver.findElement(By.id("onetrust-accept-btn-handler")).click();
+        driver.get("https://www.aruodas.lt/");
+        driver.findElement(By.id("onetrust-accept-btn-handler")).click();
     }
 
     public static void login() {
