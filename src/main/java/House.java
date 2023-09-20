@@ -1,11 +1,11 @@
 import org.openqa.selenium.By;
 
-public class House extends Advertisement {   // nurodomas paveldimumas
+public class House extends Advertisement {   
     private String landArea;
     private String buildYear;
 
     public House(String city, String microdistrict, String street, String phoNo, String houseSize, String landArea, String price, String buildYear, String photo) {
-        super(city, microdistrict, street, phoNo, houseSize, price, photo);   // super reiskia tevinis konstruktorius
+        super(city, microdistrict, street, phoNo, houseSize, price, photo);   
         this.landArea  = landArea;
         this.buildYear = buildYear;
     }
@@ -16,7 +16,7 @@ public class House extends Advertisement {   // nurodomas paveldimumas
         fillLandArea();
         fillBuildYear();
 
-       // submit();
+       
     }
     public void fillLandArea(){
         Utils.driver.findElement(By.id("fieldFAreaLot")).sendKeys(this.landArea);
