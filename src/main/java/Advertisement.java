@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class Advertisement {     // sukurta tevine klase. sioje klaseje nugula visi universalus duomenys
+public class Advertisement {     
     private String city;
     private String microdistrict;
     private String street;
@@ -15,7 +15,7 @@ public class Advertisement {     // sukurta tevine klase. sioje klaseje nugula v
 
 
 
-    // zemiau nurodyta tevinis konstruktorius
+   
     public Advertisement(String city, String microdistrict, String street, String phoNo, String area, String price, String photo) {
         this.city = city;
         this.microdistrict = microdistrict;
@@ -27,7 +27,7 @@ public class Advertisement {     // sukurta tevine klase. sioje klaseje nugula v
         this.No = No;
     }
 
-    public void fillGeneral() {    // nusirodom atskirus metodus
+    public void fillGeneral() {    
         selectRegion();
         selectDistrict();
         selectStreet();
